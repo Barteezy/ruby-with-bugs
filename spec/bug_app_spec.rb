@@ -1,3 +1,6 @@
+require "bug_app"
+require "rspec"
+
 describe Bugs do
 
   before do
@@ -5,6 +8,7 @@ describe Bugs do
   end
 
   it "should return a greeting" do
+
     expect(@bug.greeting).to eq("Hi, my name is Elmer Fudd")
   end
 
@@ -17,10 +21,12 @@ describe Bugs do
   end
 
   it "should return the zipcode" do
+
     expect(@bug.zip_code).to eq("My zipcode is 80204")
   end
 
   it "should return the correct state fish" do
+
     expect(@bug.fish("Hawaii")).to eq("Humuhumunukunukuapua'a")
   end
 

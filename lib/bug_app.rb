@@ -22,33 +22,33 @@ class Bugs
       South_Dakota: {name: "Walleye"},
       Nebraska: {name: "Channel Catfish"}
     }
-    @states = %w(Hawaii California Colorado Utah Wyoming South_Dakota Nebraska)
+    @states = ["Hawaii","California","Colorado","Utah", "Wyoming","South","Dakota","Nebraska"]
   end
 
   def greeting
-    "Hi, my name is #{@users[:first_name]} #{@users[:last_name]}"
+    "Hi, my name is #{@user[:name][:first]} #{@user[:name][:last]}"
   end
 
   def street_address
-    "I live on #{@user["street"]}"
+    "I live on #{@user[:address][:street]}"
   end
 
   def state
-    "I live in #{@user[:state]}"
+    "I live in #{@user[:address]["state"]}"
   end
 
-  def zip
-    "My zipcode is #{@user[:zip]}"
+  def zip_code
+    "My zipcode is #{@user[:address][:zipcode]}"
   end
 
   def fish(state)
-    @state_fish[state]
+    @state_fish[state.to_sym][:name]
   end
 
   def states(letter)
     result = []
-    @states.each do |state|
-      result.pop(state) if state[0] == letter
+    @states.select do |state|
+      result << state if state[0] == letter
     end
   end
 
